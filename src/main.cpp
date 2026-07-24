@@ -3,6 +3,9 @@
 #include <iostream>
 #include <vector>
 
+// Headers
+#include "camera.h"
+
 // Input Function
 void processInput(GLFWwindow* window)
 {
