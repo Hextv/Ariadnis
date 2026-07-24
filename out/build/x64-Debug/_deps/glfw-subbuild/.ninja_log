@@ -1,0 +1,21 @@
+# ninja log v6
+3	60	8065915669164105	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir	28ff23f36c74ea6b
+3	60	8065915669164105	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-mkdir	28ff23f36c74ea6b
+61	5764	8065915726221224	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download	9dee6e0e1fffec62
+61	5764	8065915726221224	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-download	9dee6e0e1fffec62
+5765	5893	8065915726268216	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update	4d16a77c525166cd
+5765	5893	8065915726268216	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-update	4d16a77c525166cd
+5894	5948	8065915728052741	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch	89e035f009f0bd06
+5894	5948	8065915728052741	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-patch	89e035f009f0bd06
+5948	6002	8065915728579463	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure	45be09eb8f0d837f
+5948	6002	8065915728579463	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-configure	45be09eb8f0d837f
+6002	6056	8065915729131978	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build	2413e241dda37ba9
+6002	6056	8065915729131978	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-build	2413e241dda37ba9
+6056	6109	8065915729662709	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install	e6fec34e81020dfa
+6056	6109	8065915729662709	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-install	e6fec34e81020dfa
+6109	6162	8065915730199548	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test	39dff63d82247df7
+6109	6162	8065915730199548	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-test	39dff63d82247df7
+6162	6233	8065915730899596	CMakeFiles/glfw-populate-complete	a5f0e5b96696414e
+6162	6233	8065915730899596	glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done	a5f0e5b96696414e
+6162	6233	8065915730899596	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/CMakeFiles/glfw-populate-complete	a5f0e5b96696414e
+6162	6233	8065915730899596	D:/Important/Ariadne/out/build/x64-Debug/_deps/glfw-subbuild/glfw-populate-prefix/src/glfw-populate-stamp/glfw-populate-done	a5f0e5b96696414e
