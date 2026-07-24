@@ -1,10 +1,9 @@
+// Current Function: Testing
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <vector>
-
-// Headers
-#include "camera.h"
 
 // Input Function
 void processInput(GLFWwindow* window)
@@ -23,7 +22,7 @@ int main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Window Object
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Ariadne", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(800, 600, "Ariadnis", NULL, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window!" << std::endl;

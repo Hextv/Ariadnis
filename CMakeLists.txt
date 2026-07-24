@@ -28,6 +28,8 @@ add_executable(Ariadnis
     src/main.cpp 
     src/glad.c
     src/camera.h
+    src/terrain/terrain.cpp
+    src/terrain/terrain.h
 )
 
 target_include_directories(Ariadnis PRIVATE 
