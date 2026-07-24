@@ -1,0 +1,1178 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/"
+    found: "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.14.51+25f168cee for .NET Framework
+      Build started 7/24/2026 11:15:16 AM.
+      
+      Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\lib" /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.exe
+      AppLocalFromInstalled:
+        "D:\\Important\\Programming\\Libraries\\vcpkg-master\\vcpkg.exe" z-applocal --target-binary="D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.exe" --installed-bin-dir="D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\bin" --tlog-file="Debug\\CompilerIdC.tlog\\CompilerIdC.write.1u.tlog" --copied-files-log="Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:01.04
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/Important/Ariadne/build/CMakeFiles/4.3.1/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+    searched_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+    searched_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
+      - "C:/ProgramData/Oracle/Java/javapath/lld-link.com"
+      - "C:/ProgramData/Oracle/Java/javapath/lld-link.exe"
+      - "C:/ProgramData/Oracle/Java/javapath/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "D:/W/WM/CMake/bin/lld-link.com"
+      - "D:/W/WM/CMake/bin/lld-link.exe"
+      - "D:/W/WM/CMake/bin/lld-link"
+      - "D:/W/JS/lld-link.com"
+      - "D:/W/JS/lld-link.exe"
+      - "D:/W/JS/lld-link"
+      - "D:/Important/DeimOS/QEMU/lld-link.com"
+      - "D:/Important/DeimOS/QEMU/lld-link.exe"
+      - "D:/Important/DeimOS/QEMU/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "D:/Apps/Microsoft VS Code/bin/lld-link.com"
+      - "D:/Apps/Microsoft VS Code/bin/lld-link.exe"
+      - "D:/Apps/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/lld-link.com"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/lld-link.exe"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/lld-link"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/lld-link.com"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/lld-link.exe"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/lld-link"
+      - "D:/Apps/Antigravity/bin/lld-link.com"
+      - "D:/Apps/Antigravity/bin/lld-link.exe"
+      - "D:/Apps/Antigravity/bin/lld-link"
+      - "D:/W/WM/MySql/lld-link.com"
+      - "D:/W/WM/MySql/lld-link.exe"
+      - "D:/W/WM/MySql/lld-link"
+      - "C:/Users/Ivan/AppData/Roaming/npm/lld-link.com"
+      - "C:/Users/Ivan/AppData/Roaming/npm/lld-link.exe"
+      - "C:/Users/Ivan/AppData/Roaming/npm/lld-link"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/lld-link.com"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/lld-link.exe"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+    searched_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.com"
+    found: "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+    searched_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.com"
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt.exe"
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/mt"
+      - "C:/ProgramData/Oracle/Java/javapath/mt.com"
+      - "C:/ProgramData/Oracle/Java/javapath/mt.exe"
+      - "C:/ProgramData/Oracle/Java/javapath/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files/Git/cmd/mt.com"
+      - "C:/Program Files/Git/cmd/mt.exe"
+      - "C:/Program Files/Git/cmd/mt"
+      - "D:/W/WM/CMake/bin/mt.com"
+      - "D:/W/WM/CMake/bin/mt.exe"
+      - "D:/W/WM/CMake/bin/mt"
+      - "D:/W/JS/mt.com"
+      - "D:/W/JS/mt.exe"
+      - "D:/W/JS/mt"
+      - "D:/Important/DeimOS/QEMU/mt.com"
+      - "D:/Important/DeimOS/QEMU/mt.exe"
+      - "D:/Important/DeimOS/QEMU/mt"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/mt"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/mt"
+      - "D:/Apps/Microsoft VS Code/bin/mt.com"
+      - "D:/Apps/Microsoft VS Code/bin/mt.exe"
+      - "D:/Apps/Microsoft VS Code/bin/mt"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/mt.com"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/mt.exe"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/mt"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/mt.com"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/mt.exe"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/mt"
+      - "D:/Apps/Antigravity/bin/mt.com"
+      - "D:/Apps/Antigravity/bin/mt.exe"
+      - "D:/Apps/Antigravity/bin/mt"
+      - "D:/W/WM/MySql/mt.com"
+      - "D:/W/WM/MySql/mt.exe"
+      - "D:/W/WM/MySql/mt"
+      - "C:/Users/Ivan/AppData/Roaming/npm/mt.com"
+      - "C:/Users/Ivan/AppData/Roaming/npm/mt.exe"
+      - "C:/Users/Ivan/AppData/Roaming/npm/mt"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/mt.com"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/mt.exe"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+    searched_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.com"
+    found: "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/"
+    found: "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.14.51+25f168cee for .NET Framework
+      Build started 7/24/2026 11:15:18 AM.
+      
+      Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      VcpkgTripletSelection:
+        Using triplet "x64-windows" from "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\"
+        Using normalized configuration "Release"
+      ClCompile:
+        D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\include" /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\lib" /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.exe
+      AppLocalFromInstalled:
+        "D:\\Important\\Programming\\Libraries\\vcpkg-master\\vcpkg.exe" z-applocal --target-binary="D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.exe" --installed-bin-dir="D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\bin" --tlog-file="Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.write.1u.tlog" --copied-files-log="Debug\\vcpkg.applocal.log"
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\4.3.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.69
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/Important/Ariadne/build/CMakeFiles/4.3.1/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:65 (__resolve_tool_path)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:104 (__resolve_linker_path)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/"
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+    searched_directories:
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.com"
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link.exe"
+      - "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lld-link"
+      - "C:/ProgramData/Oracle/Java/javapath/lld-link.com"
+      - "C:/ProgramData/Oracle/Java/javapath/lld-link.exe"
+      - "C:/ProgramData/Oracle/Java/javapath/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "D:/W/WM/CMake/bin/lld-link.com"
+      - "D:/W/WM/CMake/bin/lld-link.exe"
+      - "D:/W/WM/CMake/bin/lld-link"
+      - "D:/W/JS/lld-link.com"
+      - "D:/W/JS/lld-link.exe"
+      - "D:/W/JS/lld-link"
+      - "D:/Important/DeimOS/QEMU/lld-link.com"
+      - "D:/Important/DeimOS/QEMU/lld-link.exe"
+      - "D:/Important/DeimOS/QEMU/lld-link"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/lld-link"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "D:/Apps/Microsoft VS Code/bin/lld-link.com"
+      - "D:/Apps/Microsoft VS Code/bin/lld-link.exe"
+      - "D:/Apps/Microsoft VS Code/bin/lld-link"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/lld-link.com"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/lld-link.exe"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/lld-link"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/lld-link.com"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/lld-link.exe"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/lld-link"
+      - "D:/Apps/Antigravity/bin/lld-link.com"
+      - "D:/Apps/Antigravity/bin/lld-link.exe"
+      - "D:/Apps/Antigravity/bin/lld-link"
+      - "D:/W/WM/MySql/lld-link.com"
+      - "D:/W/WM/MySql/lld-link.exe"
+      - "D:/W/WM/MySql/lld-link"
+      - "C:/Users/Ivan/AppData/Roaming/npm/lld-link.com"
+      - "C:/Users/Ivan/AppData/Roaming/npm/lld-link.exe"
+      - "C:/Users/Ivan/AppData/Roaming/npm/lld-link"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/lld-link.com"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/lld-link.exe"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC.cmake:592 (enable_language)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC.cmake:565 (__windows_compiler_msvc_enable_rc)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/Platform/Windows-MSVC-C.cmake:5 (__windows_compiler_msvc)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeCInformation.cmake:48 (include)"
+      - "CMakeLists.txt"
+    mode: "program"
+    variable: "CMAKE_RC_COMPILER"
+    description: "RC compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "rc"
+    candidate_directories:
+      - "C:/ProgramData/Oracle/Java/javapath/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Git/cmd/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/JS/"
+      - "D:/Important/DeimOS/QEMU/"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Apps/Microsoft VS Code/bin/"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/"
+      - "D:/Apps/Antigravity/bin/"
+      - "D:/W/WM/MySql/"
+      - "C:/Users/Ivan/AppData/Roaming/npm/"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/"
+      - "C:/Program Files/bin/"
+      - "C:/Program Files/sbin/"
+      - "C:/Program Files/"
+      - "C:/Program Files (x86)/bin/"
+      - "C:/Program Files (x86)/sbin/"
+      - "C:/Program Files (x86)/"
+      - "D:/W/WM/CMake/bin/"
+      - "D:/W/WM/CMake/sbin/"
+      - "D:/W/WM/CMake/"
+      - "C:/Program Files (x86)/Project/bin/"
+      - "C:/Program Files (x86)/Project/sbin/"
+      - "C:/Program Files (x86)/Project/"
+    searched_directories:
+      - "C:/ProgramData/Oracle/Java/javapath/rc.com"
+      - "C:/ProgramData/Oracle/Java/javapath/rc.exe"
+      - "C:/ProgramData/Oracle/Java/javapath/rc"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/rc"
+      - "C:/Windows/System32/rc.com"
+      - "C:/Windows/System32/rc.exe"
+      - "C:/Windows/System32/rc"
+      - "C:/Windows/rc.com"
+      - "C:/Windows/rc.exe"
+      - "C:/Windows/rc"
+      - "C:/Windows/System32/wbem/rc.com"
+      - "C:/Windows/System32/wbem/rc.exe"
+      - "C:/Windows/System32/wbem/rc"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/rc"
+      - "C:/Windows/System32/OpenSSH/rc.com"
+      - "C:/Windows/System32/OpenSSH/rc.exe"
+      - "C:/Windows/System32/OpenSSH/rc"
+      - "C:/Program Files/Git/cmd/rc.com"
+      - "C:/Program Files/Git/cmd/rc.exe"
+      - "C:/Program Files/Git/cmd/rc"
+      - "D:/W/WM/CMake/bin/rc.com"
+      - "D:/W/WM/CMake/bin/rc.exe"
+      - "D:/W/WM/CMake/bin/rc"
+      - "D:/W/JS/rc.com"
+      - "D:/W/JS/rc.exe"
+      - "D:/W/JS/rc"
+      - "D:/Important/DeimOS/QEMU/rc.com"
+      - "D:/Important/DeimOS/QEMU/rc.exe"
+      - "D:/Important/DeimOS/QEMU/rc"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.com"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc.exe"
+      - "C:/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/rc"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/rc.com"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/rc.exe"
+      - "C:/Users/Ivan/AppData/Local/Microsoft/WindowsApps/rc"
+      - "D:/Apps/Microsoft VS Code/bin/rc.com"
+      - "D:/Apps/Microsoft VS Code/bin/rc.exe"
+      - "D:/Apps/Microsoft VS Code/bin/rc"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/rc.com"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/rc.exe"
+      - "C:/Users/Ivan/AppData/Local/GitHubDesktop/bin/rc"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/rc.com"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/rc.exe"
+      - "D:/Apps/VSC/Microsoft VS Code/Stuff/mingw64/bin/rc"
+      - "D:/Apps/Antigravity/bin/rc.com"
+      - "D:/Apps/Antigravity/bin/rc.exe"
+      - "D:/Apps/Antigravity/bin/rc"
+      - "D:/W/WM/MySql/rc.com"
+      - "D:/W/WM/MySql/rc.exe"
+      - "D:/W/WM/MySql/rc"
+      - "C:/Users/Ivan/AppData/Roaming/npm/rc.com"
+      - "C:/Users/Ivan/AppData/Roaming/npm/rc.exe"
+      - "C:/Users/Ivan/AppData/Roaming/npm/rc"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/rc.com"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/rc.exe"
+      - "D:/Important/Programming/MSYS2/ucrt64/bin/rc"
+      - "C:/Program Files/bin/rc.com"
+      - "C:/Program Files/bin/rc.exe"
+      - "C:/Program Files/bin/rc"
+      - "C:/Program Files/sbin/rc.com"
+      - "C:/Program Files/sbin/rc.exe"
+      - "C:/Program Files/sbin/rc"
+      - "C:/Program Files/rc.com"
+      - "C:/Program Files/rc.exe"
+      - "C:/Program Files/rc"
+      - "C:/Program Files (x86)/bin/rc.com"
+      - "C:/Program Files (x86)/bin/rc.exe"
+      - "C:/Program Files (x86)/bin/rc"
+      - "C:/Program Files (x86)/sbin/rc.com"
+      - "C:/Program Files (x86)/sbin/rc.exe"
+      - "C:/Program Files (x86)/sbin/rc"
+      - "C:/Program Files (x86)/rc.com"
+      - "C:/Program Files (x86)/rc.exe"
+      - "C:/Program Files (x86)/rc"
+      - "D:/W/WM/CMake/bin/rc.com"
+      - "D:/W/WM/CMake/bin/rc.exe"
+      - "D:/W/WM/CMake/bin/rc"
+      - "D:/W/WM/CMake/sbin/rc.com"
+      - "D:/W/WM/CMake/sbin/rc.exe"
+      - "D:/W/WM/CMake/sbin/rc"
+      - "D:/W/WM/CMake/rc.com"
+      - "D:/W/WM/CMake/rc.exe"
+      - "D:/W/WM/CMake/rc"
+      - "C:/Program Files (x86)/Project/bin/rc.com"
+      - "C:/Program Files (x86)/Project/bin/rc.exe"
+      - "C:/Program Files (x86)/Project/bin/rc"
+      - "C:/Program Files (x86)/Project/sbin/rc.com"
+      - "C:/Program Files (x86)/Project/sbin/rc.exe"
+      - "C:/Program Files (x86)/Project/sbin/rc"
+      - "C:/Program Files (x86)/Project/rc.com"
+      - "C:/Program Files (x86)/Project/rc.exe"
+      - "C:/Program Files (x86)/Project/rc"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\ProgramData\\Oracle\\Java\\javapath"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "D:\\W\\WM\\CMake\\bin"
+        - "D:\\W\\JS\\"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\"
+        - "C:\\Users\\Ivan\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Apps\\Microsoft VS Code\\bin"
+        - "C:\\Users\\Ivan\\AppData\\Local\\GitHubDesktop\\bin"
+        - "D:\\Apps\\VSC\\Microsoft VS Code\\Stuff\\mingw64\\bin"
+        - "D:\\Apps\\Antigravity\\bin"
+        - "D:\\W\\WM\\MySql"
+        - "C:\\Users\\Ivan\\AppData\\Roaming\\npm"
+        - "D:\\Important\\DeimOS\\QEMU"
+        - "D:\\Important\\Programming\\MSYS2\\ucrt64\\bin"
+      CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/Project"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "C:/Program Files"
+        - "C:/Program Files (x86)"
+        - "D:/W/WM/CMake"
+        - "C:/Program Files (x86)/Project"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-swbyzd"
+      binary: "D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-swbyzd"
+    cmakeVariables:
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-swbyzd'
+        
+        Run Build Command(s): "D:/Important/Programming/Visual Studio 2022/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4b923.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.51+25f168cee for .NET Framework
+        Build started 7/24/2026 11:15:19 AM.
+        
+        Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-swbyzd\\cmTC_4b923.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-swbyzd\\Debug\\".
+          Creating directory "cmTC_4b923.dir\\Debug\\cmTC_4b923.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_4b923.dir\\Debug\\cmTC_4b923.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_4b923.dir\\Debug\\cmTC_4b923.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_4b923.dir\\Debug\\\\" /Fd"cmTC_4b923.dir\\Debug\\vc143.pdb" /external:W3 /TC /errorReport:queue "D:\\W\\WM\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35228 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /I"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_4b923.dir\\Debug\\\\" /Fd"cmTC_4b923.dir\\Debug\\vc143.pdb" /external:W3 /TC /errorReport:queue "D:\\W\\WM\\CMake\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-swbyzd\\Debug\\cmTC_4b923.exe" /INCREMENTAL /ILK:"cmTC_4b923.dir\\Debug\\cmTC_4b923.ilk" /NOLOGO /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-swbyzd/Debug/cmTC_4b923.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-swbyzd/Debug/cmTC_4b923.lib" /MACHINE:X64  /machine:x64 cmTC_4b923.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_4b923.vcxproj -> D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-swbyzd\\Debug\\cmTC_4b923.exe
+        AppLocalFromInstalled:
+          "D:\\Important\\Programming\\Libraries\\vcpkg-master\\vcpkg.exe" z-applocal --target-binary="D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-swbyzd\\Debug\\cmTC_4b923.exe" --installed-bin-dir="D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\bin" --tlog-file="cmTC_4b923.dir\\Debug\\cmTC_4b923.tlog\\cmTC_4b923.write.1u.tlog" --copied-files-log="cmTC_4b923.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Deleting file "cmTC_4b923.dir\\Debug\\cmTC_4b923.tlog\\unsuccessfulbuild".
+          Touching "cmTC_4b923.dir\\Debug\\cmTC_4b923.tlog\\cmTC_4b923.lastbuildstate".
+        Done Building Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-swbyzd\\cmTC_4b923.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.70
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    message: |
+      Running the C compiler's linker: "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35228.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-cd2gbg"
+      binary: "D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-cd2gbg"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-cd2gbg'
+        
+        Run Build Command(s): "D:/Important/Programming/Visual Studio 2022/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_88bf3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.51+25f168cee for .NET Framework
+        Build started 7/24/2026 11:15:20 AM.
+        
+        Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cd2gbg\\cmTC_88bf3.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cd2gbg\\Debug\\".
+          Creating directory "cmTC_88bf3.dir\\Debug\\cmTC_88bf3.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_88bf3.dir\\Debug\\cmTC_88bf3.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_88bf3.dir\\Debug\\cmTC_88bf3.tlog\\unsuccessfulbuild".
+        VcpkgTripletSelection:
+          Using triplet "x64-windows" from "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\"
+          Using normalized configuration "Debug"
+        ClCompile:
+          D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /I"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_88bf3.dir\\Debug\\\\" /Fd"cmTC_88bf3.dir\\Debug\\vc143.pdb" /external:W3 /TP /errorReport:queue "D:\\W\\WM\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35228 for x64
+          Copyright (C) Microsoft Corporation.  All rights reserved.
+          cl /c /I"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\include" /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_88bf3.dir\\Debug\\\\" /Fd"cmTC_88bf3.dir\\Debug\\vc143.pdb" /external:W3 /TP /errorReport:queue "D:\\W\\WM\\CMake\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          D:\\Important\\Programming\\Visual Studio 2022\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /OUT:"D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cd2gbg\\Debug\\cmTC_88bf3.exe" /INCREMENTAL /ILK:"cmTC_88bf3.dir\\Debug\\cmTC_88bf3.ilk" /NOLOGO /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\lib" /LIBPATH:"D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\lib\\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\lib\\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-cd2gbg/Debug/cmTC_88bf3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"D:/Important/Ariadne/build/CMakeFiles/CMakeScratch/TryCompile-cd2gbg/Debug/cmTC_88bf3.lib" /MACHINE:X64  /machine:x64 cmTC_88bf3.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_88bf3.vcxproj -> D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cd2gbg\\Debug\\cmTC_88bf3.exe
+        AppLocalFromInstalled:
+          "D:\\Important\\Programming\\Libraries\\vcpkg-master\\vcpkg.exe" z-applocal --target-binary="D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cd2gbg\\Debug\\cmTC_88bf3.exe" --installed-bin-dir="D:\\Important\\Programming\\Libraries\\vcpkg-master\\installed\\x64-windows\\debug\\bin" --tlog-file="cmTC_88bf3.dir\\Debug\\cmTC_88bf3.tlog\\cmTC_88bf3.write.1u.tlog" --copied-files-log="cmTC_88bf3.dir\\Debug\\vcpkg.applocal.log"
+        FinalizeBuildStatus:
+          Deleting file "cmTC_88bf3.dir\\Debug\\cmTC_88bf3.tlog\\unsuccessfulbuild".
+          Touching "cmTC_88bf3.dir\\Debug\\cmTC_88bf3.tlog\\cmTC_88bf3.lastbuildstate".
+        Done Building Project "D:\\Important\\Ariadne\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cd2gbg\\cmTC_88bf3.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.69
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "D:/W/WM/CMake/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt"
+    message: |
+      Running the CXX compiler's linker: "D:/Important/Programming/Visual Studio 2022/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35228.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+...
