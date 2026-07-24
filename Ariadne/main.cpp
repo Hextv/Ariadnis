@@ -1,7 +1,3 @@
-// Personal Comment
-
-// Need to make 2x2 triangle grid
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -105,17 +101,23 @@ int main()
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
-	// Define Vertices [For Triangle]
-	float vertices[]{
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f, 0.5f, 0.0f
+	// Define Vertices [For Rectangle]
+	float vertices[] = {
+		 0.5f,  0.5f, 0.0f,		// top right
+		 0.5f, -0.5f, 0.0f,		// bottom right
+		-0.5f, -0.5f, 0.0f,		// bottom left
+		-0.5f,  0.5f, 0.0f 		// top left
+	};
+	unsigned int indices[] = {
+		0, 1, 3,	// First triangle
+		1, 2, 3		// Second triangle
 	};
 
-	// Vertex Array Object & Vertex Buffer Object
-	unsigned int VAO, VBO;
+	// Vertex Array Object, Vertex Buffer Object & Element Buffer Object
+	unsigned int VAO, VBO, EBO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
 
 	// 1. Bind VAO first!
 	glBindVertexArray(VAO);
@@ -124,7 +126,11 @@ int main()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);												// Select VBO as the active vertex buffer
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);		// Copy vertex data into the GPU's memory
 
-	// 3. Set attribute pointers
+	// 3. Bind and fill EBO
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);										// Select EBO as the active element array buffer
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);	// Copy index data into the GPU's memory
+
+	// 4. Set attribute pointers
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0); // Turn on location 0 so the GPU can use this data
 
@@ -138,10 +144,10 @@ int main()
 		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// Draw the object [For Triangle]
+		// Draw the object [For Rectangle]
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3); // Tell OpenGL to draw 3 vertices as a triangle!
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); // Tell OpenGL to draw 6 indices as triangles!
 
 		// Render frame and handle events
 		glfwSwapBuffers(window);
@@ -151,6 +157,7 @@ int main()
 	// Clean up resources before closing
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
 	glDeleteProgram(shaderProgram);
 
 	glfwTerminate();
