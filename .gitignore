@@ -361,3 +361,13 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# CMake build output
+[Bb]uild/
+out/
+
+# Visual Studio solution and project files (if managing via CMake)
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
