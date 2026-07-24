@@ -1,6 +1,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <vector>
 
 // Input Function
 void processInput(GLFWwindow* window)
@@ -64,12 +65,13 @@ int main()
 		std::cout << "ERROR: SHADER / VERTEX / COMPILATION_FAILED \n" << infoLog << std::endl;
 	}
 
-	// Fragment Shader
+	// Fragment Shader with a uniform color for dynamic terrain tinting
 	const char* fragmentShaderSource = "#version 330 core \n"
 		"out vec4 FragColor; \n"
+		"uniform vec4 color; \n"
 		"void main() \n"
 		"{ \n"
-		" FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f); \n"
+		" FragColor = color; \n"
 		"} \0";
 
 	unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -128,11 +130,14 @@ int main()
 
 	// 3. Bind and fill EBO
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);										// Select EBO as the active element array buffer
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);	// Copy index data into the GPU's memory
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);// Copy index data into the GPU's memory
 
 	// 4. Set attribute pointers
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0); // Turn on location 0 so the GPU can use this data
+
+	// Get color uniform location
+	int colorLoc = glGetUniformLocation(shaderProgram, "color");
 
 	// Render Loop
 	while (!glfwWindowShouldClose(window))
@@ -140,14 +145,27 @@ int main()
 		// Use of Input Function
 		processInput(window);
 
-		// Specify Color
-		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
+		// Dark editor backdrop (#1A1C23)
+		glClearColor(0.10f, 0.11f, 0.14f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		// Draw the object [For Rectangle]
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); // Tell OpenGL to draw 6 indices as triangles!
+
+		// Triangle 1: High terrain grass green (#4E9F3D)
+		glUniform4f(colorLoc, 0.31f, 0.62f, 0.24f, 1.0f);
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)0);
+
+		// Triangle 2: Low terrain meadow green (#3B7A2E)
+		glUniform4f(colorLoc, 0.23f, 0.48f, 0.18f, 1.0f);
+		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)(3 * sizeof(unsigned int)));
+
+		// Wireframe seam lines: Dark slate separator (#1E222A)
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glLineWidth(2.0f);
+		glUniform4f(colorLoc, 0.12f, 0.13f, 0.16f, 1.0f);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 		// Render frame and handle events
 		glfwSwapBuffers(window);
