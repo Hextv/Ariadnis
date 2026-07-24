@@ -1,1 +1,2 @@
 D:\Important\Ariadne\x64\Debug\glfw3.dll
+D:\Important\Ariadne\Ariadne\x64\Debug\Ariadne.vcxproj.Up2Date
