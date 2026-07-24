@@ -1,19 +1,63 @@
-# Ariadne
+# Ariadnis
 
-> **Status:** Currently in Study Phase (Because this is my first project!)
+> **⚠️ Status: Study Phase**
+>
+> Ariadnis is still in the early stages. Right now the focus is on building the renderer, editor, and terrain systems before adding the planned features.
 
-A custom C++ and OpenGL terrain editor for fast, low-poly 3D modeling and hand-painting.
+<p align="center">
+    <a href="https://discord.gg/e4xVHwPtfP">
+        <img src="https://img.shields.io/badge/Discord-Join%20the%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
+    </a>
+</p>
 
-## The Idea
-Scultping and painting low-poly terrain in full-fledged 3D suites like Blender or Maya can feel slow and overcomplicated for retro or stylized art styles. 
+## About
 
-**Ariadne** aims to streamline the workflow for creating game-ready assets (like classic *World of Warcraft* or N64/PS1 style environments) by providing:
+Ariadnis is a terrain editor written in **C++** and **OpenGL** for creating stylized, low-poly environments.
 
-* **Interactive Mesh Deformation:** Push, pull, and smooth a triangle grid directly with brush tools to build mountains and landscapes.
-* **Direct Painting:** Hand-paint textures or vertex colors straight onto the sculpted mesh in real time.
-* **Game-Ready Export:** Quickly save and export modified meshes for use in game engines like Unity, Unreal Engine, or Godot.
+The idea is straightforward. You begin with a flat plane, sculpt it into the terrain you want using brush tools, then paint it directly inside the editor. The goal is to keep everything in one place without jumping between different programs for every change.
+
+This project isn't trying to replace software like Blender or Maya. It's meant to be a dedicated tool for terrain creation with a workflow that's faster and more focused.
+
+## Planned Features
+
+### Sculpting
+
+- Raise & Lower
+- Smooth
+- Flatten
+- Noise brush
+- Adjustable brush size and strength
+- Undo & Redo
+
+### Painting
+
+- Texture painting
+- Vertex color painting
+- Brush falloff
+- Multiple paint layers
+
+### Editor
+
+- Real-time viewport
+- Camera controls
+- Wireframe mode
+- Project saving
+
+### Export
+
+- OBJ
+- glTF
+- Unity
+- Unreal Engine
+- Godot
+
+## Inspiration
+
+The workflow is inspired by terrain creation found in games like **World of Warcraft** while also supporting classic low-poly styles from the PS1 and Nintendo 64 era.
 
 ## Built With
-* C++
-* OpenGL / GLAD
-* GLFW
+
+- C++
+- OpenGL
+- GLFW
+- GLAD
