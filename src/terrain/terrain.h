@@ -6,27 +6,22 @@
 
 class Terrain {
 public:
-	int width;
-	int depth;
-	float cellSize; // Size of a single square
+    int width;
+    int depth;
+    float cellSize;
 
-	std::vector<float> vertices;
-	std::vector<int> indices;
+    std::vector<float> vertices;
+    std::vector<int> indices;
 
-	unsigned int VAO, VBO, EBO; // OpenGL buffers
+    unsigned int VAO, VBO, EBO;
 
-	// Controls the Mesh generation
-	void generateMesh() {
-		// Walk through each grid point on the X and Z axes to build the terrain mesh
-		for (int z = 0; z < depth; z++) {
-			for (int x = 0; x < width; x++) {
-				// Code
-			}
-		}
-	}
+    // Constructors & Destructor
+    Terrain();
+    Terrain(int width, int depth, float cellSize);
+    ~Terrain();
 
-	// Future send information toward the GPU
-	void setupBuffers() {
-
-	}
+    // Member Functions
+    void generateMesh();
+    void setupBuffers();
+    void draw();
 };
