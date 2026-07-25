@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "terrain/terrain.h"
+#include "core/terrain/terrain.h"
 
 // Input Function
 void processInput(GLFWwindow* window)

@@ -24,7 +24,7 @@ void Terrain::generateMesh() {
     vertices.reserve(width * depth * 3);
     indices.reserve((width - 1) * (depth - 1) * 6);
 
-    // 1. Generate Vertices
+    // Generate Vertices
     for (int z = 0; z < depth; z++) {
         for (int x = 0; x < width; x++) {
             float posX = x * cellSize;
@@ -37,7 +37,7 @@ void Terrain::generateMesh() {
         }
     }
 
-    // 2. Generate Indices (Triangles)
+    // Generate Indices (Triangles)
     for (int z = 0; z < depth - 1; z++) {
         for (int x = 0; x < width - 1; x++) {
             int topLeft = z * width + x;

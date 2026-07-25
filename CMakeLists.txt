@@ -27,9 +27,9 @@ FetchContent_MakeAvailable(glfw glm)
 add_executable(Ariadnis 
     src/main.cpp 
     src/glad.c
-    src/camera.h
-    src/terrain/terrain.cpp
-    src/terrain/terrain.h
+    src/core/camera/camera.h
+    src/core/terrain/terrain.cpp
+    src/core/terrain/terrain.h
 )
 
 target_include_directories(Ariadnis PRIVATE 
