@@ -6,13 +6,22 @@
 #include <vector>
 
 #include "core/terrain/terrain.h"
+#include "core/camera/camera.h"
 
-// Input Function
-void processInput(GLFWwindow* window)
-{
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
-}
+// Global Camera Settings
+Camera camera(glm::vec3(0.0f, 2.0f, 5.0f));
+float lastX = 800.0f / 2.0f;
+float lastY = 600.0f / 2.0f;
+bool firstMouse = true;
+
+// Timing
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
+
+// Callbacks
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void processInput(GLFWwindow* window);
 
 // Main Function
 int main()
@@ -33,6 +42,11 @@ int main()
 	}
 	glfwMakeContextCurrent(window);
 
+	// Register Callbacks & Lock Mouse to Window
+	glfwSetCursorPosCallback(window, mouse_callback);
+	glfwSetScrollCallback(window, scroll_callback);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
 	// GLAD Initialize
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
@@ -40,17 +54,20 @@ int main()
 		return -1;
 	}
 
+	// Enable Depth Test
+	glEnable(GL_DEPTH_TEST);
+
 	// Viewport
 	glViewport(0, 0, 800, 600);
 
-	// Vertex Shader (translates X/Z coordinates to center and tilt the flat terrain)
+	// Vertex Shader using View and Projection Matrices
 	const char* vertexShaderSource = "#version 330 core \n"
 		"layout (location = 0) in vec3 aPos; \n"
+		"uniform mat4 view; \n"
+		"uniform mat4 projection; \n"
 		"void main() \n"
 		"{ \n"
-		" float posX = aPos.x - 0.5; \n"
-		" float posY = aPos.y - (aPos.z * 0.5) + 0.2; \n"
-		" gl_Position = vec4(posX, posY, 0.0, 1.0); \n"
+		" gl_Position = projection * view * vec4(aPos, 1.0); \n"
 		"} \0";
 
 	// Create shader object and shader source code
@@ -103,6 +120,8 @@ int main()
 	glDeleteShader(fragmentShader);
 
 	int colorLoc = glGetUniformLocation(shaderProgram, "color");
+	int viewLoc = glGetUniformLocation(shaderProgram, "view");
+	int projLoc = glGetUniformLocation(shaderProgram, "projection");
 
 	// Instantiate and setup Terrain (Width, Depth, CellSize)
 	Terrain myTerrain(10, 10, 0.1f);
@@ -112,12 +131,25 @@ int main()
 	// Render Loop
 	while (!glfwWindowShouldClose(window))
 	{
+		// Delta time calculation
+		float currentFrame = (float)glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
+		// Input processing
 		processInput(window);
 
 		glClearColor(0.10f, 0.11f, 0.14f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		glUseProgram(shaderProgram);
+
+		// Calculate 3D transformation matrices
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 800.0f / 600.0f, 0.1f, 100.0f);
+		glm::mat4 view = camera.GetViewMatrix();
+
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
 
 		// Render as wireframe
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -140,4 +172,52 @@ int main()
 
 	glfwTerminate();
 	return 0;
+}
+
+// Input Function
+void processInput(GLFWwindow* window)
+{
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		camera.processKeyboard(CameraMovement::FORWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		camera.processKeyboard(CameraMovement::BACKWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		camera.processKeyboard(CameraMovement::LEFT, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		camera.processKeyboard(CameraMovement::RIGHT, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+		camera.processKeyboard(CameraMovement::UP, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+		camera.processKeyboard(CameraMovement::DOWN, deltaTime);
+}
+
+// Mouse movement callback
+void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
+{
+	float xpos = static_cast<float>(xposIn);
+	float ypos = static_cast<float>(yposIn);
+
+	if (firstMouse)
+	{
+		lastX = xpos;
+		lastY = ypos;
+		firstMouse = false;
+	}
+
+	float xoffset = xpos - lastX;
+	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+
+	lastX = xpos;
+	lastY = ypos;
+
+	camera.processMouseMovement(xoffset, yoffset);
+}
+
+// Mouse scroll callback
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	camera.processMouseScroll(static_cast<float>(yoffset));
 }
