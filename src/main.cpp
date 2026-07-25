@@ -132,8 +132,8 @@ int main()
 	int viewLoc = glGetUniformLocation(shaderProgram, "view");
 	int projLoc = glGetUniformLocation(shaderProgram, "projection");
 
-	// Instantiate and setup Terrain (Width, Depth, CellSize)
-	Terrain myTerrain(10, 10, 0.1f);
+	// Instantiate and setup Terrain (Width, Depth, CellSize) -----------------------------------
+	Terrain myTerrain(32, 32, 0.1f); // CHANGE GRID SIZE
 	myTerrain.generateMesh();
 	myTerrain.setupBuffers();
 
