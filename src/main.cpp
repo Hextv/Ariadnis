@@ -32,8 +32,14 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+	// Fullscreen Setup
+	GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+	const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+
+	glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
+
 	// Window Object
-	GLFWwindow* window = glfwCreateWindow(800, 600, "Ariadnis", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(mode->width, mode->height, "Ariadnis", primaryMonitor, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window!" << std::endl;
@@ -41,6 +47,9 @@ int main()
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
+
+	lastX = mode->width / 2.0f;
+	lastY = mode->height / 2.0f;
 
 	// Register Callbacks & Lock Mouse to Window
 	glfwSetCursorPosCallback(window, mouse_callback);
@@ -58,7 +67,7 @@ int main()
 	glEnable(GL_DEPTH_TEST);
 
 	// Viewport
-	glViewport(0, 0, 800, 600);
+	glViewport(0, 0, mode->width, mode->height);
 
 	// Vertex Shader using View and Projection Matrices
 	const char* vertexShaderSource = "#version 330 core \n"
@@ -128,6 +137,8 @@ int main()
 	myTerrain.generateMesh();
 	myTerrain.setupBuffers();
 
+	float aspectRatio = (float)mode->width / (float)mode->height;
+
 	// Render Loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -145,7 +156,7 @@ int main()
 		glUseProgram(shaderProgram);
 
 		// Calculate 3D transformation matrices
-		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 800.0f / 600.0f, 0.1f, 100.0f);
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), aspectRatio, 0.1f, 100.0f);
 		glm::mat4 view = camera.GetViewMatrix();
 
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
