@@ -30,7 +30,9 @@ add_executable(Ariadnis
     src/core/camera/camera.h
     src/core/terrain/terrain.cpp
     src/core/terrain/terrain.h
- "src/core/camera/camera.cpp")
+    src/core/camera/camera.cpp
+    src/core/render/render-modes.h
+)
 
 target_include_directories(Ariadnis PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
