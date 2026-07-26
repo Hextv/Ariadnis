@@ -30,10 +30,10 @@ This document tracks the feature progress and implementation milestones for Aria
   - Implement top `TopBar` navigation component (`File`, `Edit`, `View`, `Help`).
   - Implement left vertical `Toolbar` component for selecting active tools.
 
-- [ IN PROGRESS ] **Task 2: Sculpting Tools System Architecture**
+- [ DONE ] **Task 2: Sculpting Tools System Architecture**
   - Define standard `Brush` base class interface (`radius`, `strength`, `apply()`).
 
-- [ IN PROGRESS ] **Task 3: Terrain Sculpting (Raise / Lower Brush)**
+- [ DONE ] **Task 3: Terrain Sculpting (Raise / Lower Brush)**
   - Implement 3D raycasting to the terrain grid.
   - Implement radial Gaussian/Cosine falloff logic for height modifications.
   - Add logic to elevate vertices on Left Click and lower vertices when holding `Shift`.
