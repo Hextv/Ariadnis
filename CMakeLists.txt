@@ -36,7 +36,7 @@ set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui_impl_opengl3.cpp
 )
 
-add_library(imgui STATIC ${IMGUI_SOURCES} "src/ui/navigation/top_bar.h")
+add_library(imgui STATIC ${IMGUI_SOURCES} "src/ui/navigation/top_bar.h" "src/tools/brush.h" "src/tools/raise_lower_brush/raise_lower_brush.cpp" "src/tools/raise_lower_brush/raise_lower_brush.h")
 
 target_include_directories(imgui PUBLIC 
     ${IMGUI_DIR}
@@ -59,7 +59,12 @@ add_executable(Ariadnis
     src/core/render/render-modes.h
 
     # --- UI SOURCES ---
-    src/ui/navigation/top_bar.h)
+    src/ui/navigation/top_bar.h 
+    
+    # --- TOOLS ---
+    src/tools/brush.h
+    src/tools/raise_lower_brush/raise_lower_brush.cpp
+    src/tools/raise_lower_brush/raise_lower_brush.h)
 
 target_include_directories(Ariadnis PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
