@@ -24,6 +24,31 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(glfw glm)
 
+set(IMGUI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/imgui)
+
+set(IMGUI_SOURCES
+    ${IMGUI_DIR}/imgui.cpp
+    ${IMGUI_DIR}/imgui_demo.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui_tables.cpp
+    ${IMGUI_DIR}/imgui_widgets.cpp
+    ${IMGUI_DIR}/imgui_impl_glfw.cpp
+    ${IMGUI_DIR}/imgui_impl_opengl3.cpp
+)
+
+add_library(imgui STATIC ${IMGUI_SOURCES})
+
+target_include_directories(imgui PUBLIC 
+    ${IMGUI_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+target_link_libraries(imgui PUBLIC 
+    glfw 
+    opengl32
+)
+
+# --- Main Executable ---
 add_executable(Ariadnis 
     src/main.cpp 
     src/glad.c
@@ -42,4 +67,5 @@ target_link_libraries(Ariadnis PRIVATE
     glfw 
     glm::glm
     opengl32
+    imgui
 )
