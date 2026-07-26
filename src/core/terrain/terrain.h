@@ -23,5 +23,8 @@ public:
     // Member Functions
     void generateMesh();
     void setupBuffers();
+    void updateBuffers();
     void draw();
+
+    std::vector<float>& getVertices() { return vertices; }
 };

@@ -1,20 +1,23 @@
 # Controls
 
 ### Camera Movement
-* W - Move Forward
-* S - Move Backward
-* A - Move Left
-* D - Move Right
+* **W** - Move Forward
+* **S** - Move Backward
+* **A** - Move Left
+* **D** - Move Right
+* **Space** - Move Up
+* **Left Control** - Move Down
 
-* Space - Move Up
-* Left Shift - Move Down
+### Mouse & Navigation
+* **Right Click (Hold) + Mouse** - Look Around (Locks cursor to navigate viewport)
+* **Scroll Wheel** - Zoom In / Out
 
-### Mouse Controls
-* Mouse - Look Around
-* Scroll Wheel - Zoom In / Out
+### Terrain Sculpting / Brush
+* **Left Click** - Raise Terrain / Apply Active Brush
+* **Left Shift + Left Click** - Invert Brush (Lower Terrain)
 
 ### Render Modes
-* O - Cycle Render Mode (Solid / Wireframe / Hybrid)
+* **O** - Cycle Render Mode (Solid / Wireframe / Hybrid)
 
 ### System
-* Escape - Exit Application [SOON WILL BE REMOVED]
+* **Escape** - Exit Application [SOON WILL BE REMOVED]

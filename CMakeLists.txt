@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(FetchContent)
 
+# --- Fetch GLFW ---
 FetchContent_Declare(
     glfw
     GIT_REPOSITORY https://github.com/glfw/glfw.git
@@ -16,6 +17,7 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
+# --- Fetch GLM ---
 FetchContent_Declare(
     glm
     GIT_REPOSITORY https://github.com/g-truc/glm.git
@@ -24,6 +26,7 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(glfw glm)
 
+# --- ImGui Target ---
 set(IMGUI_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/imgui)
 
 set(IMGUI_SOURCES
@@ -36,15 +39,23 @@ set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui_impl_opengl3.cpp
 )
 
-add_library(imgui STATIC ${IMGUI_SOURCES} "src/ui/navigation/top_bar.h" "src/tools/brush.h" "src/tools/raise_lower_brush/raise_lower_brush.cpp" "src/tools/raise_lower_brush/raise_lower_brush.h")
+add_library(imgui STATIC 
+    ${IMGUI_SOURCES} 
+    "src/ui/navigation/top_bar.h" 
+    "src/tools/brush.h" 
+    "src/tools/raise_lower_brush/raise_lower_brush.cpp" 
+    "src/tools/raise_lower_brush/raise_lower_brush.h"
+)
 
 target_include_directories(imgui PUBLIC 
     ${IMGUI_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+# Added glm::glm here so tool sources inside imgui target can see GLM headers
 target_link_libraries(imgui PUBLIC 
     glfw 
+    glm::glm
     opengl32
 )
 
@@ -60,11 +71,12 @@ add_executable(Ariadnis
 
     # --- UI SOURCES ---
     src/ui/navigation/top_bar.h 
-    
+
     # --- TOOLS ---
     src/tools/brush.h
     src/tools/raise_lower_brush/raise_lower_brush.cpp
-    src/tools/raise_lower_brush/raise_lower_brush.h)
+    src/tools/raise_lower_brush/raise_lower_brush.h
+)
 
 target_include_directories(Ariadnis PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include

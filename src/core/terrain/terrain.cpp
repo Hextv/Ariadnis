@@ -72,9 +72,9 @@ void Terrain::setupBuffers() {
 
     glBindVertexArray(VAO);
 
-    // VBO
+    // VBO - Using GL_DYNAMIC_DRAW since vertex heights will be modified by brushes
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_DYNAMIC_DRAW);
 
     // EBO
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -86,6 +86,13 @@ void Terrain::setupBuffers() {
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+}
+
+void Terrain::updateBuffers() {
+    // Re-upload vertex positions to the GPU VBO after brush modifications
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(float), vertices.data());
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 void Terrain::draw() {

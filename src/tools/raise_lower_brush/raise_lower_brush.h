@@ -4,11 +4,14 @@
 
 namespace Core::Tools {
 
-	class RaiseLowerBrush : public Brush {
-	public:
+    class RaiseLowerBrush : public Brush {
+    public:
+        RaiseLowerBrush() = default;
+        ~RaiseLowerBrush() override = default;
 
-		RaiseLowerBrush() = default;
+        void apply(Terrain& terrain, const glm::vec3& hitPosition, float deltaTime) override;
 
-		bool isLowering = false; // Hold Shift to lower terrain
-	};
+        bool isLowering = false; // Set to true to lower terrain
+    };
+
 }
