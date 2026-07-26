@@ -7,12 +7,16 @@
 
 #include "core/terrain/terrain.h"
 #include "core/camera/camera.h"
+#include "core/render/render-modes.h"
 
 // Global Camera Settings
 Camera camera(glm::vec3(0.0f, 2.0f, 5.0f));
 float lastX = 800.0f / 2.0f;
 float lastY = 600.0f / 2.0f;
 bool firstMouse = true;
+
+// Render Mode Instance
+TerrainRenderMode renderMode;
 
 // Timing
 float deltaTime = 0.0f;
@@ -162,17 +166,8 @@ int main()
 		glUniformMatrix4fv(projLoc, 1, GL_FALSE, &projection[0][0]);
 		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
 
-		// Render as wireframe
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		glLineWidth(1.5f);
-
-		// Set wireframe color (Green)
-		glUniform4f(colorLoc, 0.31f, 0.62f, 0.24f, 1.0f);
-
-		// Draw the full terrain grid
-		myTerrain.draw();
-
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		// Draw Terrain using active Render Mode (SOLID / WIREFRAME / SOLID_WITH_WIREFRAME)
+		renderMode.render(myTerrain, colorLoc);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -203,6 +198,9 @@ void processInput(GLFWwindow* window)
 		camera.processKeyboard(CameraMovement::UP, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 		camera.processKeyboard(CameraMovement::DOWN, deltaTime);
+
+	// Handle Render Mode Toggles (Key 'O')
+	renderMode.handleInput(window);
 }
 
 // Mouse movement callback

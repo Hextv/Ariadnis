@@ -18,3 +18,6 @@ This document tracks the feature progress and implementation milestones for Aria
 - [ DONE ] **Task 3: Basic Camera System**
   - Implement a free-fly (FlyCam) to navigate around the grid.
   - Connect mouse and keyboard inputs via GLFW.
+
+- [ DONE ] **Task 4: Dynamic Render Modes**
+  - Cycle sequentially between Solid, Wireframe, and Hybrid modes using hotkey input ('O').

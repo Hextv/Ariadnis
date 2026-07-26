@@ -13,5 +13,8 @@
 * Mouse - Look Around
 * Scroll Wheel - Zoom In / Out
 
+### Render Modes
+* O - Cycle Render Mode (Solid / Wireframe / Hybrid)
+
 ### System
 * Escape - Exit Application [SOON WILL BE REMOVED]
