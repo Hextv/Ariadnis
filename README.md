@@ -1,4 +1,10 @@
-# Ariadnis
+<p align="center">
+  <a href="https://github.com/user-attachments/assets/ba853a51-abf7-4dd8-8546-3b9a83c8288f">
+    <img src="https://github.com/user-attachments/assets/ba853a51-abf7-4dd8-8546-3b9a83c8288f" alt="Ariadnis Logo" width="500" />
+  </a>
+</p>
+
+<h1 align="center">Ariadnis</h1>
 
 > **⚠️ Status: Study Phase**
 >
@@ -61,3 +67,4 @@ The workflow is inspired by terrain creation found in games like **World of Warc
 - OpenGL
 - GLFW
 - GLAD
+- Dear ImGui
