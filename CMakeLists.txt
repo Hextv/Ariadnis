@@ -36,7 +36,7 @@ set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui_impl_opengl3.cpp
 )
 
-add_library(imgui STATIC ${IMGUI_SOURCES})
+add_library(imgui STATIC ${IMGUI_SOURCES} "src/ui/navigation/top_bar.h")
 
 target_include_directories(imgui PUBLIC 
     ${IMGUI_DIR}
@@ -57,7 +57,9 @@ add_executable(Ariadnis
     src/core/terrain/terrain.h
     src/core/camera/camera.cpp
     src/core/render/render-modes.h
-)
+
+    # --- UI SOURCES ---
+    src/ui/navigation/top_bar.h)
 
 target_include_directories(Ariadnis PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
