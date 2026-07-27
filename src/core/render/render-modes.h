@@ -37,20 +37,20 @@ public:
 			keyOpressed = false;
 		}
 	}
-	
+
 	template<typename TerrainType>
 	void render(TerrainType& terrain, int colorLoc) {
 		switch (currentMode) {
 		case RenderModes::SOLID:
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-			glUniform4f(colorLoc, 0.2f, 0.5f, 0.3f, 1.0f);
+			glUniform4f(colorLoc, 0.36f, 0.38f, 0.42f, 1.0f);
 			terrain.draw();
 			break;
 
 		case RenderModes::WIREFRAME:
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 			glLineWidth(1.5f);
-			glUniform4f(colorLoc, 0.31f, 0.62f, 0.24f, 1.0f);
+			glUniform4f(colorLoc, 0.55f, 0.58f, 0.62f, 1.0f);
 			terrain.draw();
 			break;
 
@@ -59,14 +59,14 @@ public:
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 			glEnable(GL_POLYGON_OFFSET_FILL);
 			glPolygonOffset(1.0f, 1.0f);
-			glUniform4f(colorLoc, 0.15f, 0.20f, 0.22f, 1.0f);
+			glUniform4f(colorLoc, 0.36f, 0.38f, 0.42f, 1.0f);
 			terrain.draw();
 			glDisable(GL_POLYGON_OFFSET_FILL);
 
 			// Wireframe Overlay
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 			glLineWidth(1.2f);
-			glUniform4f(colorLoc, 0.31f, 0.62f, 0.24f, 1.0f);
+			glUniform4f(colorLoc, 0.20f, 0.22f, 0.25f, 1.0f);
 			terrain.draw();
 			break;
 		}
