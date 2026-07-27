@@ -6,7 +6,7 @@
 * **A** - Move Left
 * **D** - Move Right
 * **Space** - Move Up
-* **Left Control** - Move Down
+* **-** - Move Down
 
 ### Mouse & Navigation
 * **Right Click (Hold) + Mouse** - Look Around (Locks cursor to navigate viewport)
@@ -21,3 +21,6 @@
 
 ### System
 * **Escape** - Exit Application [SOON WILL BE REMOVED]
+
+* **CTRL+Z** - Undo
+* **CTRL+Y** - Redo

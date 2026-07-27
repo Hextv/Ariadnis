@@ -9,6 +9,7 @@
 #include "core/camera/camera.h"
 #include "core/render/render-modes.h"
 #include "tools/raise_lower_brush/raise_lower_brush.h"
+#include "core/history/history_manager.h"
 
 // Global Camera Settings
 Camera camera(glm::vec3(0.0f, 2.0f, 5.0f));
@@ -16,9 +17,10 @@ float lastX = 800.0f / 2.0f;
 float lastY = 600.0f / 2.0f;
 bool firstMouse = true;
 
-// Render Mode & Brush Instance
+// Render Mode, Brush Instance & History Manager
 TerrainRenderMode renderMode;
 Core::Tools::RaiseLowerBrush raiseLowerBrush;
+HistoryManager historyManager;
 
 // Timing
 float deltaTime = 0.0f;
@@ -232,7 +234,7 @@ void processInput(GLFWwindow* window, Terrain& terrain)
         camera.processKeyboard(CameraMovement::RIGHT, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
         camera.processKeyboard(CameraMovement::UP, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_MINUS) == GLFW_PRESS)
         camera.processKeyboard(CameraMovement::DOWN, deltaTime);
 
     // Handle Render Mode Toggles (Key 'O')
@@ -241,9 +243,20 @@ void processInput(GLFWwindow* window, Terrain& terrain)
     // Toggle Raise/Lower with Left Shift
     raiseLowerBrush.isLowering = (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS);
 
-    // Sculpt on Left Mouse Click
-    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
+    // Track sculpt state and handle Undo/Redo history
+    static bool isSculpting = false;
+    static std::vector<float> beforeVertices;
+
+    bool isMouseDown = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS);
+
+    if (isMouseDown)
     {
+        if (!isSculpting)
+        {
+            isSculpting = true;
+            beforeVertices = terrain.getVertices();
+        }
+
         double mouseX, mouseY;
         glfwGetCursorPos(window, &mouseX, &mouseY);
 
@@ -252,6 +265,44 @@ void processInput(GLFWwindow* window, Terrain& terrain)
         {
             raiseLowerBrush.apply(terrain, hitPoint, deltaTime);
         }
+    }
+    else
+    {
+        if (isSculpting)
+        {
+            isSculpting = false;
+            std::vector<float> afterVertices = terrain.getVertices();
+            if (beforeVertices != afterVertices)
+            {
+                auto cmd = std::make_unique<TerrainModifyCommand>(terrain, beforeVertices, afterVertices);
+                historyManager.pushCommand(std::move(cmd));
+            }
+        }
+    }
+
+    // Handle Undo / Redo keyboard shortcuts when not actively sculpting
+    if (!isSculpting)
+    {
+        static bool zPressedLastFrame = false;
+        static bool yPressedLastFrame = false;
+
+        bool ctrlDown = (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) ||
+                        (glfwGetKey(window, GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS);
+
+        bool zDown = (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS);
+        bool yDown = (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS);
+
+        if (ctrlDown && zDown && !zPressedLastFrame)
+        {
+            historyManager.undo();
+        }
+        if (ctrlDown && yDown && !yPressedLastFrame)
+        {
+            historyManager.redo();
+        }
+
+        zPressedLastFrame = zDown;
+        yPressedLastFrame = yDown;
     }
 }
 
