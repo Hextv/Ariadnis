@@ -1,5 +1,3 @@
-// Current Function: Testing
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -29,6 +27,10 @@ float lastFrame = 0.0f;
 // Window Dimensions
 int windowWidth = 800;
 int windowHeight = 600;
+
+// Brush visual circle variables
+bool brushHit = false;
+glm::vec3 brushHitPoint(0.0f);
 
 // Callbacks
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -61,6 +63,44 @@ bool raycastToTerrainPlane(Camera& cam, float screenX, float screenY, int width,
 
     outHitPoint = rayOrigin + rayDir * t;
     return true;
+}
+
+// Bilinear interpolation helper to get the terrain height at any (x, z) coordinate
+float getTerrainHeight(const Terrain& terrain, float x, float z) {
+    float max_x = (terrain.width - 1) * terrain.cellSize;
+    float max_z = (terrain.depth - 1) * terrain.cellSize;
+
+    // Clamp to terrain boundaries
+    if (x < 0.0f) x = 0.0f;
+    if (x > max_x) x = max_x;
+    if (z < 0.0f) z = 0.0f;
+    if (z > max_z) z = max_z;
+
+    int gx = static_cast<int>(x / terrain.cellSize);
+    int gz = static_cast<int>(z / terrain.cellSize);
+
+    // Clamp cell coordinates to valid interpolation range
+    if (gx >= terrain.width - 1) gx = terrain.width - 2;
+    if (gz >= terrain.depth - 1) gz = terrain.depth - 2;
+    if (gx < 0) gx = 0;
+    if (gz < 0) gz = 0;
+
+    float local_x = (x / terrain.cellSize) - gx;
+    float local_z = (z / terrain.cellSize) - gz;
+
+    int idx00 = (gz * terrain.width + gx) * 3 + 1;
+    int idx10 = (gz * terrain.width + (gx + 1)) * 3 + 1;
+    int idx01 = ((gz + 1) * terrain.width + gx) * 3 + 1;
+    int idx11 = ((gz + 1) * terrain.width + (gx + 1)) * 3 + 1;
+
+    float h00 = terrain.vertices[idx00];
+    float h10 = terrain.vertices[idx10];
+    float h01 = terrain.vertices[idx01];
+    float h11 = terrain.vertices[idx11];
+
+    float h_top = h00 * (1.0f - local_x) + h10 * local_x;
+    float h_bottom = h01 * (1.0f - local_x) + h11 * local_x;
+    return h_top * (1.0f - local_z) + h_bottom * local_z;
 }
 
 // Main Function
@@ -179,6 +219,19 @@ int main()
     myTerrain.generateMesh();
     myTerrain.setupBuffers();
 
+    // Setup Brush Circle buffers
+    unsigned int circleVAO, circleVBO;
+    glGenVertexArrays(1, &circleVAO);
+    glGenBuffers(1, &circleVBO);
+    glBindVertexArray(circleVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
+    // Allocate buffer for 65 vertices (x, y, z)
+    glBufferData(GL_ARRAY_BUFFER, 65 * 3 * sizeof(float), nullptr, GL_DYNAMIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
     float aspectRatio = (float)mode->width / (float)mode->height;
 
     // Render Loop
@@ -207,11 +260,44 @@ int main()
         // Draw Terrain using active Render Mode (SOLID / WIREFRAME / SOLID_WITH_WIREFRAME)
         renderMode.render(myTerrain, colorLoc);
 
+        // Draw Brush visual circle
+        bool isRightMouseDown = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS);
+        if (brushHit && !isRightMouseDown)
+        {
+            std::vector<float> circleVertices;
+            int segments = 64;
+            float radius = raiseLowerBrush.radius;
+            for (int i = 0; i <= segments; ++i)
+            {
+                float angle = 2.0f * 3.1415926535f * i / segments;
+                float cx = brushHitPoint.x + radius * std::cos(angle);
+                float cz = brushHitPoint.z + radius * std::sin(angle);
+                float cy = getTerrainHeight(myTerrain, cx, cz) + 0.005f; // small offset to prevent z-fighting
+                circleVertices.push_back(cx);
+                circleVertices.push_back(cy);
+                circleVertices.push_back(cz);
+            }
+
+            glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
+            glBufferSubData(GL_ARRAY_BUFFER, 0, circleVertices.size() * sizeof(float), circleVertices.data());
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+            glUseProgram(shaderProgram);
+            glUniform4f(colorLoc, 0.0f, 0.75f, 1.0f, 1.0f); // Cyan color
+            glLineWidth(2.0f);
+            glBindVertexArray(circleVAO);
+            glDrawArrays(GL_LINE_STRIP, 0, segments + 1);
+            glBindVertexArray(0);
+            glLineWidth(1.0f); // Reset line width
+        }
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    // Clean up shader program
+    // Clean up resources
+    glDeleteVertexArrays(1, &circleVAO);
+    glDeleteBuffers(1, &circleVBO);
     glDeleteProgram(shaderProgram);
 
     glfwTerminate();
@@ -243,6 +329,21 @@ void processInput(GLFWwindow* window, Terrain& terrain)
     // Toggle Raise/Lower with Left Shift
     raiseLowerBrush.isLowering = (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS);
 
+    // Get current hit point under the mouse
+    double mouseX, mouseY;
+    glfwGetCursorPos(window, &mouseX, &mouseY);
+    brushHit = raycastToTerrainPlane(camera, static_cast<float>(mouseX), static_cast<float>(mouseY), windowWidth, windowHeight, brushHitPoint);
+    if (brushHit)
+    {
+        float max_x = (terrain.width - 1) * terrain.cellSize;
+        float max_z = (terrain.depth - 1) * terrain.cellSize;
+        if (brushHitPoint.x < 0.0f || brushHitPoint.x > max_x ||
+            brushHitPoint.z < 0.0f || brushHitPoint.z > max_z)
+        {
+            brushHit = false;
+        }
+    }
+
     // Track sculpt state and handle Undo/Redo history
     static bool isSculpting = false;
     static std::vector<float> beforeVertices;
@@ -257,13 +358,9 @@ void processInput(GLFWwindow* window, Terrain& terrain)
             beforeVertices = terrain.getVertices();
         }
 
-        double mouseX, mouseY;
-        glfwGetCursorPos(window, &mouseX, &mouseY);
-
-        glm::vec3 hitPoint;
-        if (raycastToTerrainPlane(camera, static_cast<float>(mouseX), static_cast<float>(mouseY), windowWidth, windowHeight, hitPoint))
+        if (brushHit)
         {
-            raiseLowerBrush.apply(terrain, hitPoint, deltaTime);
+            raiseLowerBrush.apply(terrain, brushHitPoint, deltaTime);
         }
     }
     else

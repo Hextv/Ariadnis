@@ -15,8 +15,8 @@ namespace Core::Tools {
         virtual void apply(Terrain& terrain, const glm::vec3& hitPosition, float deltaTime) = 0;
 
         // Brush parameters
-        float radius = 1.0f;
-        float strength = 1.0f;
+        float radius = 0.5f;
+        float strength = 0.5f;
     };
 
 }
