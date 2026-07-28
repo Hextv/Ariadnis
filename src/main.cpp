@@ -3,11 +3,16 @@
 #include <iostream>
 #include <vector>
 
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
 #include "core/terrain/terrain.h"
 #include "core/camera/camera.h"
 #include "core/render/render-modes.h"
 #include "tools/raise_lower_brush/raise_lower_brush.h"
 #include "core/history/history_manager.h"
+#include "ui/navigation/top_bar.h"
 
 // Global Camera Settings
 Camera camera(glm::vec3(0.0f, 2.0f, 5.0f));
@@ -28,21 +33,22 @@ float lastFrame = 0.0f;
 int windowWidth = 800;
 int windowHeight = 600;
 
-// Fullscreen State Tracking
-bool isFullscreen = false;
-int windowedPosX = 100;
-int windowedPosY = 100;
+// Maximized Window State Tracking
+bool isMaximized = false;
 
 // Brush visual circle variables
 bool brushHit = false;
 glm::vec3 brushHitPoint(0.0f);
+
+// UI Instance
+UI::TopBar topBar;
 
 // Callbacks
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window, Terrain& terrain);
-void toggleFullscreen(GLFWwindow* window);
+void toggleMaximize(GLFWwindow* window);
 
 // Raycast helper to project mouse cursor onto ground plane
 bool raycastToTerrainPlane(Camera& cam, float screenX, float screenY, int width, int height, glm::vec3& outHitPoint) {
@@ -148,6 +154,19 @@ int main()
     // Viewport Initial Setup
     glViewport(0, 0, windowWidth, windowHeight);
 
+    // Setup ImGui context
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+
+    // Setup ImGui style
+    ImGui::StyleColorsDark();
+
+    // Setup ImGui Platform/Renderer backends
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init("#version 330");
+
     // Vertex Shader using View and Projection Matrices
     const char* vertexShaderSource = "#version 330 core \n"
         "layout (location = 0) in vec3 aPos; \n"
@@ -236,9 +255,11 @@ int main()
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        // Input processing
+        // Poll events and process scene input
+        glfwPollEvents();
         processInput(window, myTerrain);
 
+        // Clear framebuffers
         glClearColor(0.10f, 0.11f, 0.14f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -257,7 +278,7 @@ int main()
 
         // Draw Brush visual circle
         bool isRightMouseDown = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS);
-        if (brushHit && !isRightMouseDown)
+        if (brushHit && !isRightMouseDown && !ImGui::GetIO().WantCaptureMouse)
         {
             std::vector<float> circleVertices;
             int segments = 64;
@@ -286,11 +307,27 @@ int main()
             glLineWidth(1.0f); // Reset line width
         }
 
+        // Start ImGui frame
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        // Render user interface components
+        topBar.render(window);
+
+        // Render ImGui draw data
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
         glfwSwapBuffers(window);
-        glfwPollEvents();
     }
 
-    // Clean up resources
+    // Clean up ImGui resources
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+
+    // Clean up OpenGL resources
     glDeleteVertexArrays(1, &circleVAO);
     glDeleteBuffers(1, &circleVBO);
     glDeleteProgram(shaderProgram);
@@ -299,20 +336,17 @@ int main()
     return 0;
 }
 
-// Fullscreen toggle helper
-void toggleFullscreen(GLFWwindow* window)
+// Window Maximize/Restore helper
+void toggleMaximize(GLFWwindow* window)
 {
-    isFullscreen = !isFullscreen;
-    if (isFullscreen)
+    isMaximized = !isMaximized;
+    if (isMaximized)
     {
-        glfwGetWindowPos(window, &windowedPosX, &windowedPosY);
-        GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
-        const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
-        glfwSetWindowMonitor(window, primaryMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+        glfwMaximizeWindow(window);
     }
     else
     {
-        glfwSetWindowMonitor(window, NULL, windowedPosX, windowedPosY, windowWidth, windowHeight, 0);
+        glfwRestoreWindow(window);
     }
 }
 
@@ -338,17 +372,24 @@ void processInput(GLFWwindow* window, Terrain& terrain)
     // Handle Render Mode Toggles
     renderMode.handleInput(window);
 
-    // Toggle Fullscreen with 'P' key (Edge Triggered)
+    // Toggle Window Maximize with 'P' key (Edge Triggered)
     static bool pKeyPressedLastFrame = false;
     bool pKeyDown = (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS);
     if (pKeyDown && !pKeyPressedLastFrame)
     {
-        toggleFullscreen(window);
+        toggleMaximize(window);
     }
     pKeyPressedLastFrame = pKeyDown;
 
     // Toggle Raise/Lower with Left Shift
     raiseLowerBrush.isLowering = (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS);
+
+    // Prevent sculpting / raycasting when interacting with ImGui UI
+    if (ImGui::GetIO().WantCaptureMouse)
+    {
+        brushHit = false;
+        return;
+    }
 
     // Get current hit point under the mouse
     double mouseX, mouseY;
