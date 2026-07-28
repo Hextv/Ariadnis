@@ -24,9 +24,14 @@ HistoryManager historyManager;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-// Window Dimensions
+// Window Dimensions (Windowed mode defaults)
 int windowWidth = 800;
 int windowHeight = 600;
+
+// Fullscreen State Tracking
+bool isFullscreen = false;
+int windowedPosX = 100;
+int windowedPosY = 100;
 
 // Brush visual circle variables
 bool brushHit = false;
@@ -35,7 +40,9 @@ glm::vec3 brushHitPoint(0.0f);
 // Callbacks
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window, Terrain& terrain);
+void toggleFullscreen(GLFWwindow* window);
 
 // Raycast helper to project mouse cursor onto ground plane
 bool raycastToTerrainPlane(Camera& cam, float screenX, float screenY, int width, int height, glm::vec3& outHitPoint) {
@@ -48,10 +55,7 @@ bool raycastToTerrainPlane(Camera& cam, float screenX, float screenY, int width,
     glm::vec4 rayEye = glm::inverse(projection) * rayClip;
     rayEye = glm::vec4(rayEye.x, rayEye.y, -1.0f, 0.0f);
 
-    // Get camera position using public member or fallback method
-#if defined(__cpp_member_variables) || true
     glm::vec3 camPos = cam.CameraPos;
-#endif
 
     glm::vec3 rayDir = glm::normalize(glm::vec3(glm::inverse(cam.GetViewMatrix()) * rayEye));
     glm::vec3 rayOrigin = camPos;
@@ -112,14 +116,8 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // Fullscreen Setup
-    GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
-    const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
-
-    glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
-
-    // Window Object
-    GLFWwindow* window = glfwCreateWindow(mode->width, mode->height, "Ariadnis", primaryMonitor, NULL);
+    // Create Window in normal (windowed) mode
+    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, "Ariadnis", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window!" << std::endl;
@@ -128,12 +126,11 @@ int main()
     }
     glfwMakeContextCurrent(window);
 
-    windowWidth = mode->width;
-    windowHeight = mode->height;
-    lastX = mode->width / 2.0f;
-    lastY = mode->height / 2.0f;
+    lastX = windowWidth / 2.0f;
+    lastY = windowHeight / 2.0f;
 
     // Register Callbacks & Lock Mouse to Window
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
@@ -148,8 +145,8 @@ int main()
     // Enable Depth Test
     glEnable(GL_DEPTH_TEST);
 
-    // Viewport
-    glViewport(0, 0, mode->width, mode->height);
+    // Viewport Initial Setup
+    glViewport(0, 0, windowWidth, windowHeight);
 
     // Vertex Shader using View and Projection Matrices
     const char* vertexShaderSource = "#version 330 core \n"
@@ -214,7 +211,7 @@ int main()
     int viewLoc = glGetUniformLocation(shaderProgram, "view");
     int projLoc = glGetUniformLocation(shaderProgram, "projection");
 
-    // Instantiate and setup Terrain (Width, Depth, CellSize) -----------------------------------
+    // Instantiate and setup Terrain (Width, Depth, CellSize)
     Terrain myTerrain(64, 64, 0.1f);
     myTerrain.generateMesh();
     myTerrain.setupBuffers();
@@ -225,14 +222,11 @@ int main()
     glGenBuffers(1, &circleVBO);
     glBindVertexArray(circleVAO);
     glBindBuffer(GL_ARRAY_BUFFER, circleVBO);
-    // Allocate buffer for 65 vertices (x, y, z)
     glBufferData(GL_ARRAY_BUFFER, 65 * 3 * sizeof(float), nullptr, GL_DYNAMIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-
-    float aspectRatio = (float)mode->width / (float)mode->height;
 
     // Render Loop
     while (!glfwWindowShouldClose(window))
@@ -250,7 +244,8 @@ int main()
 
         glUseProgram(shaderProgram);
 
-        // Calculate 3D transformation matrices
+        // Dynamic aspect ratio calculation based on current viewport size
+        float aspectRatio = static_cast<float>(windowWidth) / static_cast<float>(windowHeight > 0 ? windowHeight : 1);
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), aspectRatio, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
 
@@ -304,6 +299,23 @@ int main()
     return 0;
 }
 
+// Fullscreen toggle helper
+void toggleFullscreen(GLFWwindow* window)
+{
+    isFullscreen = !isFullscreen;
+    if (isFullscreen)
+    {
+        glfwGetWindowPos(window, &windowedPosX, &windowedPosY);
+        GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
+        const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
+        glfwSetWindowMonitor(window, primaryMonitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+    }
+    else
+    {
+        glfwSetWindowMonitor(window, NULL, windowedPosX, windowedPosY, windowWidth, windowHeight, 0);
+    }
+}
+
 // Input Function
 void processInput(GLFWwindow* window, Terrain& terrain)
 {
@@ -323,8 +335,17 @@ void processInput(GLFWwindow* window, Terrain& terrain)
     if (glfwGetKey(window, GLFW_KEY_MINUS) == GLFW_PRESS)
         camera.processKeyboard(CameraMovement::DOWN, deltaTime);
 
-    // Handle Render Mode Toggles (Key 'O')
+    // Handle Render Mode Toggles
     renderMode.handleInput(window);
+
+    // Toggle Fullscreen with 'P' key (Edge Triggered)
+    static bool pKeyPressedLastFrame = false;
+    bool pKeyDown = (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS);
+    if (pKeyDown && !pKeyPressedLastFrame)
+    {
+        toggleFullscreen(window);
+    }
+    pKeyPressedLastFrame = pKeyDown;
 
     // Toggle Raise/Lower with Left Shift
     raiseLowerBrush.isLowering = (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS);
@@ -384,7 +405,7 @@ void processInput(GLFWwindow* window, Terrain& terrain)
         static bool yPressedLastFrame = false;
 
         bool ctrlDown = (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) ||
-                        (glfwGetKey(window, GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS);
+            (glfwGetKey(window, GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS);
 
         bool zDown = (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS);
         bool yDown = (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS);
@@ -401,6 +422,14 @@ void processInput(GLFWwindow* window, Terrain& terrain)
         zPressedLastFrame = zDown;
         yPressedLastFrame = yDown;
     }
+}
+
+// Frame buffer Handles resizing/fullscreen toggling
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+    windowWidth = width;
+    windowHeight = height;
 }
 
 // Mouse movement callback

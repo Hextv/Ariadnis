@@ -24,3 +24,5 @@
 
 * **CTRL+Z** - Undo
 * **CTRL+Y** - Redo
+
+* **P** - Toggle Fullscreen
