@@ -160,7 +160,13 @@ int main()
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
-    // Setup ImGui style
+    // Scale all UI text dynamically (1.25f = 125% scale)
+    io.FontGlobalScale = 1.25f;
+
+    ImGuiStyle& style = ImGui::GetStyle();
+    style.FramePadding = ImVec2(12.0f, 10.0f);  // Vertical and horizontal padding
+    style.ItemSpacing = ImVec2(10.0f, 8.0f);    // Spacing between UI items
+
     ImGui::StyleColorsDark();
 
     // Setup ImGui Platform/Renderer backends

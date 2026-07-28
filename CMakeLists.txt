@@ -45,7 +45,9 @@ add_library(imgui STATIC
     "src/tools/brush.h" 
     "src/tools/raise_lower_brush/raise_lower_brush.cpp" 
     "src/tools/raise_lower_brush/raise_lower_brush.h"
- "src/core/history/command.h"  "src/core/history/history_manager.h" )
+    "src/core/history/command.h"  
+    "src/core/history/history_manager.h"  
+    "src/ui/navigation/tool_bar.h")
 
 target_include_directories(imgui PUBLIC 
     ${IMGUI_DIR}
@@ -80,7 +82,7 @@ add_executable(Ariadnis
     # --- HISTORY ---
     src/core/history/command.h
     src/core/history/history_manager.h
-     )
+    src/ui/navigation/tool_bar.h)
 
 target_include_directories(Ariadnis PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
