@@ -47,14 +47,13 @@ add_library(imgui STATIC
     "src/tools/raise_lower_brush/raise_lower_brush.h"
     "src/core/history/command.h"  
     "src/core/history/history_manager.h"  
-    "src/ui/navigation/tool_bar.h")
+    "src/ui/navigation/tool_bar.h" "src/core/paint/paint_layer.h" "src/tools/paint_brush/paint_brush.h")
 
 target_include_directories(imgui PUBLIC 
     ${IMGUI_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# Added glm::glm here so tool sources inside imgui target can see GLM headers
 target_link_libraries(imgui PUBLIC 
     glfw 
     glm::glm
@@ -73,16 +72,18 @@ add_executable(Ariadnis
 
     # --- UI SOURCES ---
     src/ui/navigation/top_bar.h 
+    src/ui/navigation/tool_bar.h
 
     # --- TOOLS ---
     src/tools/brush.h
     src/tools/raise_lower_brush/raise_lower_brush.cpp
     src/tools/raise_lower_brush/raise_lower_brush.h
+    src/core/paint/paint_layer.h
+    src/tools/paint_brush/paint_brush.h
 
     # --- HISTORY ---
     src/core/history/command.h
-    src/core/history/history_manager.h
-    src/ui/navigation/tool_bar.h)
+    src/core/history/history_manager.h)
 
 target_include_directories(Ariadnis PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
