@@ -13,6 +13,7 @@
 #include "tools/raise_lower_brush/raise_lower_brush.h"
 #include "core/history/history_manager.h"
 #include "ui/navigation/top_bar.h"
+#include "ui/navigation/tool_bar.h"
 
 // Global Camera Settings
 Camera camera(glm::vec3(0.0f, 2.0f, 5.0f));
@@ -42,6 +43,7 @@ glm::vec3 brushHitPoint(0.0f);
 
 // UI Instance
 UI::TopBar topBar;
+UI::ToolBar toolBar;
 
 // Callbacks
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -320,6 +322,7 @@ int main()
 
         // Render user interface components
         topBar.render(window);
+        toolBar.render();
 
         // Render ImGui draw data
         ImGui::Render();

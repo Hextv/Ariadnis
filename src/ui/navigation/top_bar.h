@@ -38,6 +38,9 @@ namespace UI {
 					if (ImGui::MenuItem("Project Settings")) {
 						// TODO
 					}
+					if (ImGui::MenuItem("Customization")) {
+						// TODO
+					}
 					ImGui::Separator();
 					if (ImGui::MenuItem("Exit", "Esc")) {
 						glfwSetWindowShouldClose(window, true);
@@ -56,8 +59,8 @@ namespace UI {
 					ImGui::EndMenu(); // Close "Edit" menu
 				}
 
-				// "Mode" Menu
-				if (ImGui::BeginMenu("Mode")) {
+				// "View" Menu
+				if (ImGui::BeginMenu("View")) {
 					if (ImGui::MenuItem("Edit Mode")) {
 						// TODO
 					}

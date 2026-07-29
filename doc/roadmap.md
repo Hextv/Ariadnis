@@ -26,7 +26,7 @@ This document tracks the feature progress and implementation milestones for Aria
 
 ## 🟡 Phase 2: User Interface & Terrain Sculpting Brushes
 
-- [ IN PROGRESS ] **Task 1: Dear ImGui Navigation Bars**
+- [ DONE ] **Task 1: Dear ImGui Navigation Bars [STRUCTURE]**
   - Implement top `TopBar` navigation component (`File`, `Edit`, `View`, `Help`).
   - Implement left vertical `Toolbar` component for selecting active tools.
 
