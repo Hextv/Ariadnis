@@ -6,7 +6,7 @@
 
 <h1 align="center">Ariadnis</h1>
 
-> **⚠️ Status: Study Phase**
+> **⚠️ Status: Early Stage**
 >
 > Ariadnis is still in the early stages. Right now the focus is on building the renderer, editor, and terrain systems before adding the planned features.
 
@@ -23,6 +23,9 @@ Ariadnis is a terrain editor written in **C++** and **OpenGL** for creating styl
 The idea is straightforward. You begin with a flat plane, sculpt it into the terrain you want using brush tools, then paint it directly inside the editor. The goal is to keep everything in one place without jumping between different programs for every change.
 
 This project isn't trying to replace software like Blender or Maya. It's meant to be a dedicated tool for terrain creation with a workflow that's faster and more focused.
+
+## 
+<img width="1759" height="897" alt="image" src="https://github.com/user-attachments/assets/6566c771-69d2-43f0-a2ec-64ba33897583" />
 
 ## Planned Features
 
