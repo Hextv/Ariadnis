@@ -47,7 +47,9 @@ add_library(imgui STATIC
     "src/tools/raise_lower_brush/raise_lower_brush.h"
     "src/core/history/command.h"  
     "src/core/history/history_manager.h"  
-    "src/ui/navigation/tool_bar.h" "src/core/paint/paint_layer.h" "src/tools/paint_brush/paint_brush.h")
+    "src/ui/navigation/tool_bar.h" "src/core/paint/paint_layer.h"
+    "src/tools/paint_brush/paint_brush.h" "src/tools/smooth_brush/smooth_brush.h"
+    "src/tools/smooth_brush/smooth_brush.cpp")
 
 target_include_directories(imgui PUBLIC 
     ${IMGUI_DIR}
@@ -80,6 +82,8 @@ add_executable(Ariadnis
     src/tools/raise_lower_brush/raise_lower_brush.h
     src/core/paint/paint_layer.h
     src/tools/paint_brush/paint_brush.h
+    src/tools/smooth_brush/smooth_brush.h
+    src/tools/smooth_brush/smooth_brush.cpp
 
     # --- HISTORY ---
     src/core/history/command.h

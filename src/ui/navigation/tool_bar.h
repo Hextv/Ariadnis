@@ -36,7 +36,7 @@ namespace UI {
 
                 // Raise / Lower Brush
                 if (ImGui::Button("R", ImVec2(48, 48))) {
-                    // TODo
+                    // TODO
                 }
                 if (ImGui::IsItemHovered()) {
                     ImGui::SetTooltip("Raise / Lower Brush");
@@ -44,12 +44,20 @@ namespace UI {
 
                 ImGui::Spacing();
 
-                // Smooth Tool
+                // Smooth Brush
                 if (ImGui::Button("S", ImVec2(48, 48))) {
-                    // Action: Select Smooth Tool
+                    // Action: Select Smooth Brush
                 }
                 if (ImGui::IsItemHovered()) {
                     ImGui::SetTooltip("Smooth Terrain Tool");
+                }
+
+                // Flatten Brush
+                if (ImGui::Button("F", ImVec2(48, 48))) {
+                    // Action: Select Flatten Brush
+                }
+                if (ImGui::IsItemHovered()) {
+                    ImGui::SetTooltip("Flatten Terrain Tool");
                 }
 
                 ImGui::End();

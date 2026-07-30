@@ -13,8 +13,10 @@
 * **Scroll Wheel** - Zoom In / Out
 
 ### Terrain Sculpting / Brush
-* **Left Click** - Raise Terrain / Apply Active Brush
+* **Left Click** - Apply Active Brush
+* **1** - Raise / Lower Brush
 * **Left Shift + Left Click** - Invert Brush (Lower Terrain)
+* **2** - Smooth Brush
 
 ### Render Modes
 * **O** - Cycle Render Mode (Solid / Wireframe / Hybrid)

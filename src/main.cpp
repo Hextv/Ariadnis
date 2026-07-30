@@ -11,6 +11,7 @@
 #include "core/camera/camera.h"
 #include "core/render/render-modes.h"
 #include "tools/raise_lower_brush/raise_lower_brush.h"
+#include "tools/smooth_brush/smooth_brush.h"
 #include "core/history/history_manager.h"
 #include "ui/navigation/top_bar.h"
 #include "ui/navigation/tool_bar.h"
@@ -21,9 +22,20 @@ float lastX = 800.0f / 2.0f;
 float lastY = 600.0f / 2.0f;
 bool firstMouse = true;
 
-// Render Mode, Brush Instance & History Manager
+// Tool Types
+enum class ToolType {
+    RaiseLower,
+    Smooth
+};
+
+ToolType currentToolType = ToolType::RaiseLower;
+
+// Render Mode, Brush Instances & History Manager
 TerrainRenderMode renderMode;
 Core::Tools::RaiseLowerBrush raiseLowerBrush;
+Core::Tools::SmoothBrush smoothBrush;
+Core::Tools::Brush* activeBrush = &raiseLowerBrush; // Pointer to active tool
+
 HistoryManager historyManager;
 
 // Timing
@@ -284,13 +296,13 @@ int main()
         // Draw Terrain using active Render Mode (SOLID / WIREFRAME / SOLID_WITH_WIREFRAME)
         renderMode.render(myTerrain, colorLoc);
 
-        // Draw Brush visual circle
+        // Draw Brush visual circle using current active brush's radius
         bool isRightMouseDown = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS);
         if (brushHit && !isRightMouseDown && !ImGui::GetIO().WantCaptureMouse)
         {
             std::vector<float> circleVertices;
             int segments = 64;
-            float radius = raiseLowerBrush.radius;
+            float radius = activeBrush ? activeBrush->radius : 1.0f;
             for (int i = 0; i <= segments; ++i)
             {
                 float angle = 2.0f * 3.1415926535f * i / segments;
@@ -381,6 +393,18 @@ void processInput(GLFWwindow* window, Terrain& terrain)
     // Handle Render Mode Toggles
     renderMode.handleInput(window);
 
+    // Switch Tools via keyboard shortcuts: '1' for Raise/Lower, '2' for Smooth
+    if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+    {
+        currentToolType = ToolType::RaiseLower;
+        activeBrush = &raiseLowerBrush;
+    }
+    if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+    {
+        currentToolType = ToolType::Smooth;
+        activeBrush = &smoothBrush;
+    }
+
     // Toggle Window Maximize with 'P' key (Edge Triggered)
     static bool pKeyPressedLastFrame = false;
     bool pKeyDown = (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS);
@@ -390,7 +414,7 @@ void processInput(GLFWwindow* window, Terrain& terrain)
     }
     pKeyPressedLastFrame = pKeyDown;
 
-    // Toggle Raise/Lower with Left Shift
+    // Toggle Raise/Lower direction with Left Shift
     raiseLowerBrush.isLowering = (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS);
 
     // Prevent sculpting / raycasting when interacting with ImGui UI
@@ -429,9 +453,9 @@ void processInput(GLFWwindow* window, Terrain& terrain)
             beforeVertices = terrain.getVertices();
         }
 
-        if (brushHit)
+        if (brushHit && activeBrush != nullptr)
         {
-            raiseLowerBrush.apply(terrain, brushHitPoint, deltaTime);
+            activeBrush->apply(terrain, brushHitPoint, deltaTime);
         }
     }
     else
