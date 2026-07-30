@@ -3,12 +3,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "imgui.h"
+#include "../../core/history/history_manager.h"
 
 namespace UI {
 	class TopBar {
 	public:
 
-		void render(GLFWwindow* window) {
+		void render(GLFWwindow* window, HistoryManager& history) {
 			// Fixed menu bar pinned to the top of the window
 			if (ImGui::BeginMainMenuBar()) {
 
@@ -50,11 +51,12 @@ namespace UI {
 
 				// "Edit" Menu
 				if (ImGui::BeginMenu("Edit")) {
-					if (ImGui::MenuItem("Undo", "CTRL + Z")) {
-						// TODO
+
+					if (ImGui::MenuItem("Undo", "CTRL + Z", false, history.canUndo())) {
+						history.undo();
 					}
-					if (ImGui::MenuItem("Redo", "CTRL + Y")) {
-						// TODO
+					if (ImGui::MenuItem("Redo", "CTRL + Y", false, history.canRedo())) {
+						history.redo();
 					}
 					ImGui::EndMenu(); // Close "Edit" menu
 				}
@@ -70,7 +72,7 @@ namespace UI {
 					if (ImGui::MenuItem("Spectator Mode")) {
 						// TODO
 					}
-					ImGui::EndMenu(); // Close "Mode" menu
+					ImGui::EndMenu(); // Close "View" menu
 				}
 
 				// "Help" Menu
@@ -82,7 +84,7 @@ namespace UI {
 						// TODO
 					}
 					if (ImGui::MenuItem("Community")) {
-						//TODO
+						// TODO
 					}
 					ImGui::Separator();
 					if (ImGui::MenuItem("Bug Report")) {

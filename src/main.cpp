@@ -321,7 +321,7 @@ int main()
         ImGui::NewFrame();
 
         // Render user interface components
-        topBar.render(window);
+        topBar.render(window, historyManager);
         toolBar.render();
 
         // Render ImGui draw data
