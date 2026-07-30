@@ -367,3 +367,8 @@ out/
 build/
 bin/
 *.exe
+
+# Local drop-in modules belong to their own repositories/packages. Keep the
+# authoring guide, but never include module source or installed DLLs in core PRs.
+/modules/*
+!/modules/README.md

@@ -71,3 +71,10 @@ The workflow is inspired by terrain creation found in games like **World of Warc
 - GLFW
 - GLAD
 - Dear ImGui
+
+## Modules
+
+Ariadnis supports independently compiled, drop-in native modules for import,
+export, panels, brushes, and render modes. Copy a compatible
+`*.ariadnis.dll` into the `modules` folder beside the executable, then restart
+the editor. The public SDK and authoring guide are in [modules/README.md](modules/README.md).
